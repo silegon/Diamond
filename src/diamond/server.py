@@ -202,7 +202,7 @@ class Server(object):
                     try:
                         # Import the module
                         mod = __import__(modname, globals(), locals(), ['*'])
-                    except (KeyboardInterrupt, SystemExit) as err:
+                    except (KeyboardInterrupt, SystemExit), err:
                         self.log.error(
                             "System or keyboard interrupt "
                             "while loading module %s"
