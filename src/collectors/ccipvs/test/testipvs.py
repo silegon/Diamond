@@ -9,23 +9,23 @@ from mock import Mock
 from mock import patch
 
 from diamond.collector import Collector
-from ipvs import IPVSCollector
+from ccipvs import CCIPVSCollector
 
 ################################################################################
 
 
 class TestIPVSCollector(CollectorTestCase):
     def setUp(self):
-        config = get_collector_config('IPVSCollector', {
+        config = get_collector_config('CCIPVSCollector', {
             'interval': 10,
             'bin': 'true',
             'use_sudo': False
         })
 
-        self.collector = IPVSCollector(config, None)
+        self.collector = CCIPVSCollector(config, None)
 
     def test_import(self):
-        self.assertTrue(IPVSCollector)
+        self.assertTrue(CCIPVSCollector)
 
     @patch('os.access', Mock(return_value=True))
     @patch.object(Collector, 'publish')

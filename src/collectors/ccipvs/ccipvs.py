@@ -5,7 +5,7 @@ Shells out to get ipvs statistics, which may or may not require sudo access
 
 #### Dependencies
 
- * /usr/sbin/ipvsadmin
+ * /sbin/ipvsadmin
 
 """
 
@@ -16,10 +16,10 @@ import string
 from diamond.collector import str_to_bool
 
 
-class IPVSCollector(diamond.collector.Collector):
+class CCIPVSCollector(diamond.collector.Collector):
 
     def __init__(self, config, handlers):
-        super(IPVSCollector, self).__init__(config, handlers)
+        super(CCIPVSCollector, self).__init__(config, handlers)
 
         # Verify the --exact flag works
         self.statcommand = [self.config['bin'], '--list', '--rate',
@@ -35,7 +35,7 @@ class IPVSCollector(diamond.collector.Collector):
             self.concommand.insert(1, '-n')
 
     def get_default_config_help(self):
-        config_help = super(IPVSCollector, self).get_default_config_help()
+        config_help = super(CCIPVSCollector, self).get_default_config_help()
         config_help.update({
             'bin': 'Path to ipvsadm binary',
             'use_sudo': 'Use sudo?',
@@ -47,9 +47,9 @@ class IPVSCollector(diamond.collector.Collector):
         """
         Returns the default collector settings
         """
-        config = super(IPVSCollector, self).get_default_config()
+        config = super(CCIPVSRCollector, self).get_default_config()
         config.update({
-            'bin':              '/usr/sbin/ipvsadm',
+            'bin':              '/sbin/ipvsadm',
             'use_sudo':         True,
             'sudo_cmd':         '/usr/bin/sudo',
             'path':             'ipvs'
