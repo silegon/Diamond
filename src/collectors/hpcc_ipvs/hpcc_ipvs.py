@@ -47,7 +47,7 @@ class HPCCIPVSCollector(diamond.collector.Collector):
         """
         Returns the default collector settings
         """
-        config = super(HPCCIPVSRCollector, self).get_default_config()
+        config = super(HPCCIPVSCollector, self).get_default_config()
         config.update({
             'bin':              '/sbin/ipvsadm',
             'use_sudo':         True,
