@@ -16,10 +16,10 @@ import string
 from diamond.collector import str_to_bool
 
 
-class CCIPVSCollector(diamond.collector.Collector):
+class HPCCIPVSCollector(diamond.collector.Collector):
 
     def __init__(self, config, handlers):
-        super(CCIPVSCollector, self).__init__(config, handlers)
+        super(HPCCIPVSCollector, self).__init__(config, handlers)
 
         # Verify the --exact flag works
         self.statcommand = [self.config['bin'], '--list', '--rate',
@@ -35,7 +35,7 @@ class CCIPVSCollector(diamond.collector.Collector):
             self.concommand.insert(1, '-n')
 
     def get_default_config_help(self):
-        config_help = super(CCIPVSCollector, self).get_default_config_help()
+        config_help = super(HPCCIPVSCollector, self).get_default_config_help()
         config_help.update({
             'bin': 'Path to ipvsadm binary',
             'use_sudo': 'Use sudo?',
@@ -47,7 +47,7 @@ class CCIPVSCollector(diamond.collector.Collector):
         """
         Returns the default collector settings
         """
-        config = super(CCIPVSRCollector, self).get_default_config()
+        config = super(HPCCIPVSRCollector, self).get_default_config()
         config.update({
             'bin':              '/sbin/ipvsadm',
             'use_sudo':         True,
