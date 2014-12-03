@@ -52,7 +52,7 @@ class HPCCIPVSCollector(diamond.collector.Collector):
             'bin':              '/sbin/ipvsadm',
             'use_sudo':         True,
             'sudo_cmd':         '/usr/bin/sudo',
-            'path':             'ipvs'
+            'path':             'hpcc_ipvs'
         })
         return config
 
