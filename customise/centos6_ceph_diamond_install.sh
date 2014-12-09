@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cat /etc/resolve.conf
+cat /etc/resolv.conf
 
-sed -i "s/^nameserver\ .*/nameserver 114.114.114.114/g" /etc/resolv.conf
+#sed -i "s/^nameserver\ .*/nameserver 114.114.114.114/g" /etc/resolv.conf
 pip install diamond
 
 
